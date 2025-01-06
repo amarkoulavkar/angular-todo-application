@@ -1,0 +1,18 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-8">
+      <div [formGroup]="todoForm" class="input-group">
+        <input type="text" formControlName="todo" class="form-control" placeholder="Enter todo">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <button
+        class="btn btn-primary w-100"
+        [disabled]="todoForm.invalid"
+        (click)="addTasks()"
+      >
+        Add Todo
+      </button>
+    </div>
+  </div>
+</div>

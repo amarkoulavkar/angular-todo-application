@@ -1,0 +1,17 @@
+<div class="container mt-4 ">
+  <div class="row mb-2 justify-content-between d-flex align-items-center" *ngFor="let task of todos | async; let i = index">
+    <div class="col-5 d-flex align-items-center">
+      <span [style.textDecoration]="task.completed ? 'line-through' : 'none'">{{ task.value }}</span>
+    </div>
+    <div class="col-1 d-flex align-items-center">
+      <input type="checkbox" class="form-check-input bigger-checkbox" [checked]="task.completed" (change)="completeTask($event, i)">
+    </div>
+    <div class="col-1 d-flex align-items-center">
+      <span *ngIf="task.completed" class="text-success">&#10004;</span>
+      <span *ngIf="!task.completed" class="text-danger">&#10008;</span>
+    </div>
+    <div class="col-3 d-flex align-items-center">
+      <button class="btn btn-danger btn-sm rounded-pill py-2 px-4 w-100" (click)="deleteTask(i)">Delete Todo</button>
+    </div>
+  </div>
+</div>
